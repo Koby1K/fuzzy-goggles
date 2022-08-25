@@ -4,9 +4,9 @@ const app = express()
 console.log('hello from node');
 
 app.get('/', function (req, res) {
-  // res.send('Hello World from Express')
+  res.send('Hello World from Express')
 
-  res.sendFile(path.join(__dirname, 'index.html'));
+  // res.sendFile(path.join(__dirname, 'index.html'));
 
 })
 
