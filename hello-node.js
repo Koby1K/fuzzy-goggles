@@ -3,15 +3,37 @@ const app = express()
 const path = require("node:path");
 const bodyParser = require('body-parser')
 
-console.log('hello from node');
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.set('view engine', 'ejs');
+
+
+// console.log('hello from node');
+
+let userName = "Kingram"; 
+let thatData = ""; 
 
 app.get('/', function (req, res) {
-
+  // res.send(`Hello ${userName} from Node/Express/Heroku with Backticks!`);
   // res.sendFile(path.join(__dirname, 'index.html'));
-  // res.send('Hello World from Express')
+  // res.send('Hello ' + userName + ' from Node/Express/Heroku');
 
-  app.use(bodyParser.json())
-  app.use(bodyParser.)
+
+let userName = "Kingram"; 
+let thatData = ""; 
+
+res.render('index', 
+{ 
+  userName: userName
+}
+);
+
+})
+
+app.post("/saveToNode", (req, res) => {
+console.log(req.body);
+console.group(req.body.userName);
+res.render('index', { userName: req.body.userName });
 
 })
 
